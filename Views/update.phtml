@@ -1,0 +1,55 @@
+<?php require('template/header.phtml') ?>
+<section class="container">
+
+<div class="subject-new">
+  <h1 align="center">Update Campsite</h1>
+
+  <form action="addCamp.php" method="post" class="d-flex justify-content-start">
+    <div class="class="jumbotron"">
+    <dl>
+      <dt class="form-check-label">Camp Name</dt>
+      <dd><input type="text" name="name" value="<?php echo $_GET['name'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Date Opening</dt>
+      <dd><input type="text"  name="date" value="<?php echo $_GET['Opening'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Time Opening</dt>
+      <dd><input type="text"  name="time" value="<?php echo $_GET['time'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">City</dt>
+      <dd><input type="text"  name="city" value="<?php echo $_GET['city'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Country</dt>
+      <dd><input type="text"  name="country" value="<?php echo $_GET['country'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Latitude</dt>
+      <dd><input type="text"  name="latitude" value="<?php echo $_GET['latitude'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Longitude</dt>
+      <dd><input type="text"  name="longitude" value="<?php echo $_GET['longitude'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">ID</dt>
+      <dd><input type="text"  name="block" value="<?php echo $_GET['id'] ?>" /></dd>
+    </dl>
+    <dl>
+    <dt class="form-check-label">Image file name</dt>
+    <dd><input type="text"  name="image" value="<?php echo $_GET['image'] ?>" /></dd>
+  </dl>
+    <div id="operations">
+      <input type="submit" class="btn btn-danger" value="Update" />
+    </div>
+        </div>
+  </form>
+
+</div>
+
+</section>
+
+<?php require('template/footer.phtml') ?>

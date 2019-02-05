@@ -1,0 +1,81 @@
+<?php require('template/header.phtml') ?>
+<section class="container">
+
+<div class="subject-new">
+  <h1 align="center">Create Campsite</h1>
+
+  <form action="addCamp.php" method="post" class="d-flex justify-content-start">
+    <div class="class="jumbotron"">
+    <dl>
+      <dt class="form-check-label">Camp Name</dt>
+      <dd><input type="text" name="name" value="Camp Bull" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Date Opening</dt>
+      <dd><input type="text"  name="date" value="Sunday - Saturday" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Time Opening</dt>
+      <dd><input type="text"  name="time" value="07:00 - 22:00" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">City</dt>
+      <dd><input type="text"  name="city" value="ALpha" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Country</dt>
+      <dd><input type="text"  name="country" value="Bravo" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Latitude</dt>
+      <dd><input type="text"  name="latitude" value="47.42965104" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Longitude</dt>
+      <dd><input type="text"  name="longitude" value="19.12571207" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Camp Info</dt>
+      <dd><input type="text"  name="block" value="Lorem ipsum dolor sit amet, " /></dd>
+    </dl>
+    <dl>
+    <dt class="form-check-label">Image file name</dt>
+    <dd><input type="text"  name="image" value="85.jpg" /></dd>
+  </dl>
+
+  <div class="form-group">
+<label class="col-md-12 control-label" for="checkboxes">Facilities</label>
+<div class="col-md-12"
+  <label class="checkbox-inline" for="checkboxes-0">
+    <input type="checkbox" name="shower" id="checkboxes-0" value="1">
+    Shower
+  </label>
+  <label class="checkbox-inline" for="checkboxes-1">
+    <input type="checkbox" name="wifi" id="checkboxes-1" value="1">
+    Wifi
+  </label>
+  <label class="checkbox-inline" for="checkboxes-2">
+    <input type="checkbox" name="disabled" id="checkboxes-2" value="1">
+    Disabled Facilities
+  </label>
+
+  <label class="checkbox-inline" for="checkboxes-4">
+    <input type="checkbox" name="laundry" id="checkboxes-4" value="1">
+    Laundry
+  </label>
+
+</div>
+</div>
+
+
+    <div id="operations">
+      <input type="submit" class="btn btn-danger" value="Post" />
+    </div>
+        </div>
+  </form>
+
+</div>
+
+</section>
+
+<?php require('template/footer.phtml') ?>

@@ -1,0 +1,59 @@
+<?php require('template/header.phtml') ?>
+<div class="container">
+
+  <!-- Page Heading -->
+  <h1 class="my-4" align="center">Favourites for user <?php echo $_SESSION['ID-num']; ?>
+  </h1>
+  <table class="table table-hover">
+     <thead>
+      <tr>
+        <th>Favourites ID</th>
+        <th>Camp ID</th>
+        <th>User ID</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </tr>
+     </thead>
+
+  <tbody>
+      <?php foreach ($view->favouritesDataSet as $campArray) { ?>
+        <tr>
+          <td><?php echo h($campArray->getId_Favourites());?></td>
+          <td><?php echo h($campArray->getID_Camps());?></td>
+          <td><?php echo h($campArray->getUser_id());?></td>
+          <td><a class="action"  href="<?php echo url_for('/delete.php?userID='.h(u($campArray->getUser_id())).'&'.'favouritesID='.h(u($campArray->getId_Favourites()))); ?>">Delete</a></td>
+        </tr>
+        <?php } ?>
+  </tbody>
+</table>
+
+  <!-- /.row -->
+
+  <!-- Pagination -->
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+
+</div>
+<?php require('template/footer.phtml') ?>

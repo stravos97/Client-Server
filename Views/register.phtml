@@ -1,0 +1,63 @@
+<?php require('template/header.phtml') ?>
+
+  <body class="bg-dark">
+
+    <div class="container">
+      <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Register an Account</div>
+        <div class="card-body">
+          <form action="register.php" method="post">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="aCode" id="firstName" class="form-control" placeholder="Area code" autofocus="autofocus">
+                    <label for="firstName">Area code e.g."+44"</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="number" id="lastName" class="form-control" placeholder="Phone Number">
+                    <label for="lastName">Phone number</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" name="mail" id="inputEmail" class="form-control" placeholder="Email address">
+                <label for="inputEmail">Email address</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password">
+                    <label for="inputPassword">Password - Must contain at least 1 number and 1 letter & any of these !@#$% & be 8 - 30 chars long </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" name="pwd-repeat" id="confirmPassword" class="form-control" placeholder="Confirm password">
+                    <label for="confirmPassword">Confirm password</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" name="signup-submit" class="btn btn-primary btn-block">Signup</button>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="login.php">Login Page</a>
+            <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+      <br>
+        <br>
+    </div>
+
+  </body>
+
+<?php require('template/footer.phtml') ?>

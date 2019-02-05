@@ -1,0 +1,52 @@
+<?php require('template/header.phtml') ?>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <br>
+    <table class="table table-hover">
+       <thead>
+        <tr><th> ID</th><th>name</th><th>time opening</th><th>date</th><th>get city</th></tr>
+
+
+       </thead>
+    <tbody>
+        <?php foreach ($view->campDataSet as $campArray) {
+              //echo '<p> Adver ID: ' . $campArray->_id_Camps . '\>';
+                echo '<tr> <td>' . $campArray->getID_Camps() . '</td> <td>' . $campArray->getName_Camp() . '</td> <td>' . $campArray->getTime_Opening() . '</td> <td>' . $campArray->getDate_Opening() .'</td> <td>' . $campArray->getCity() . '</td> </td></tr>';
+        } ?>
+    </tbody>
+  </table>
+</form>
+
+<ul class="pagination justify-content-center">
+<?php
+$prev = $_GET['page'] - 1;
+$next = $_GET['page'] + 1;
+
+if ($_GET['page'] >= 1) {
+
+echo '     <li class="page-item">
+<a class="page-link" href="test.php?page='?><?php echo $prev; ?><?php echo '" aria-label="Previous">
+<span aria-hidden="true">&laquo;</span>
+<span class="sr-only">Previous</span>
+</a>
+</li>';
+
+} else {
+header("Location: 2.php?page=1");
+}
+
+
+
+echo              '  <li class="page-item">
+      <a class="page-link" href="test.php?page='?><?php echo $next; ?><?php echo '" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+      <span class="sr-only">Next</span>
+      </a>
+      </li>';
+?>
+
+</ul>
+
+
+
+<?php require('template/footer.phtml') ?>

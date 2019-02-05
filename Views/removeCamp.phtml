@@ -1,0 +1,28 @@
+<?php require('template/header.phtml') ?>
+<section class="container">
+
+<div class="subject-new">
+  <h1 align="center">Remove Campsite</h1>
+
+  <form action="remove.php" method="post" class="d-flex justify-content-start">
+    <div class="class="jumbotron"">
+    <dl>
+      <dt class="form-check-label">Camp Name</dt>
+      <dd><input type="text" name="name" value="<?php echo $_GET['name'] ?>" /></dd>
+    </dl>
+    <dl>
+      <dt class="form-check-label">Camp ID</dt>
+      <dd><input type="text"  name="date" value="<?php echo $_GET['id'] ?>" /></dd>
+    </dl>
+
+    <div id="operations">
+      <input type="submit" class="btn btn-danger" value="Delete" />
+    </div>
+        </div>
+  </form>
+
+</div>
+
+</section>
+
+<?php require('template/footer.phtml') ?>
