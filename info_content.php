@@ -8,6 +8,23 @@ $view = new stdClass();
 require_once ('Models/CampDataSet.php');
 require_once ('Models/CampRecordsDataSet.php');
 require_once ('Models/FavouritesDataSet.php');
+require_once ('Models/RatingDataSet.php');
+
+
+/*
+ If the id hashes match then tih is true
+*/
+if(password_verify($_SESSION['campId'], $_SESSION['hashedCampId'])) {
+    // If the password inputs matched the hashed password in the database
+    $id = $_SESSION['campId'];
+
+} else {
+  header("Location: 404.php");
+}
+
+/*
+* Unsets the search session
+*/
 if (isset($_SESSION['search'])) {
   unset($_SESSION['search']);
 }
@@ -16,11 +33,13 @@ if (isset($_SESSION['search'])) {
 
 $searchText = '';
 $searchTerm = '';
-$id = $_GET['id'];
+
 
 $campDataSet = new CampDataSet();
 $campRecordsDataSet = new CampRecordsDataSet();
-$view->campDataSet = $campDataSet->search($searchText, $_GET['page']);
+$ratingDataSet = new RatingDataSet();
+
+$view->campDataSet = $campDataSet->search($searchText, '1');
 
 if (isset($_POST['searchButton'])) {
   $searchTerm = $_POST['searchTerm']; //name of search text box
@@ -34,6 +53,17 @@ else {
 }
 
 $view->campRecordsDataSet = $campRecordsDataSet->fetchParagraph($id);
+
+if (isset($_POST['starRating'])) {
+//print_r($_POST);
+
+
+    foreach ($_POST as $value) {
+        echo $value;
+
+        $view->ratingDataSet = $ratingDataSet->addRating($_SESSION['userID'], $value);
+    }
+}
 
 /**
 * Adds an item to the favourites list, using the id of the page and the users, session id Number

@@ -1,9 +1,6 @@
 <?php
-
 class FacilitiesData {
-
     protected $_id_Camps, $_shower_camps, $_wifi_camps, $_disabled_facilities_camps, $_laundry_camps;
-
     public function __construct($dbRow) {
       $this->_shower_camps = $dbRow['shower_camps'];
       $this->_wifi_camps = $dbRow['wifi_camps'];
@@ -11,8 +8,6 @@ class FacilitiesData {
       $this->_laundry_camps = $dbRow['laundry_camps'];
       $this->_id_Camps = $dbRow['id_Camps'];
     }
-
-
         public function getShower_camps() {
             return $this->_shower_camps;
         }
@@ -28,5 +23,4 @@ class FacilitiesData {
         public function getId_Camps() {
             return $this->_id_Camps;
         }
-
 }

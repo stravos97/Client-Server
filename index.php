@@ -13,7 +13,7 @@ if (isset($_SESSION['search'])) {
 }
 
 $campDataSet = new CampDataSet();
-$view->campDataSet = $campDataSet->search($searchText);
+$view->campDataSet = $campDataSet->search($searchText, '1');
 
 
  /**
