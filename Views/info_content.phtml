@@ -1,6 +1,7 @@
 <?php require('template/header.phtml') ?>
 <?php echo $id; ?>
 <?php $full_details = ''; ?>
+<?php $name = $_GET['name']; ?>
 
 
 <!-- <form>
@@ -60,7 +61,7 @@
           <!-- Favourites -->
           <?php
             if (isset($_SESSION['userID']) && isset($_SESSION['ID-num'])){
-            echo '<form action="info_content.php?id='?><?php echo $id; ?><?php echo '" method="post">
+            echo '<form action="info_content.php?id='?><?php echo $_SESSION['hashedCampId'] . '&' . 'name=' . $name; ?><?php echo '" method="post">
                 <div class="form-row">
                   <div class="col-12 col-md-3">
                     <button type="submit" name="addFavourites" class="btn btn-primary">addFavourites</button>
@@ -70,6 +71,32 @@
 
             }
            ?>
+
+           <form method="post">
+             <!-- Change starability-basic to different class to see animations. -->
+             <fieldset class="starability-fade">
+               <legend>Basic star rating:</legend>
+               <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+
+               <input type="radio" id="rate1" name="rating" value="1" />
+               <label for="rate1">1 star.</label>
+
+               <input type="radio" id="rate2" name="rating" value="2" />
+               <label for="rate2">2 stars.</label>
+
+               <input type="radio" id="rate3" name="rating" value="3" />
+               <label for="rate3">3 stars.</label>
+
+               <input type="radio" id="rate4" name="rating" value="4" />
+               <label for="rate4">4 stars.</label>
+
+               <input type="radio" id="rate5" name="rating" value="5" />
+               <label for="rate5">5 stars.</label>
+
+               <span class="starability-focus-ring"></span>
+               <button type="submit" name="starRating" class="btn btn-primary">Submit</button>
+             </fieldset>
+           </form>
           <!-- Comments Form -->
           <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
@@ -139,6 +166,7 @@
               </div>
             </div>
           </div>
+
 
           <!-- Categories Widget -->
           <div class="card my-4">

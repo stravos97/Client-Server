@@ -14,6 +14,12 @@ $campDataSet = (new CampDataSet());
 $search = (new CampDataSet());
 $string = '';
 
+
+
+if (!isset($_POST['searchTerm'])) {
+  $_POST['searchTerm'] = '';
+}
+
 /**
 * gets the search term from the index page and uses the campDataSet object to search
 */

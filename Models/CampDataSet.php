@@ -608,7 +608,6 @@ public function maxID(){
 
                         //Fetch our rows. Array (empty if no rows). False on failure.
                         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-                        var_dump($rows);
                         return $rows;
 
 
