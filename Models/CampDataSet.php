@@ -17,7 +17,7 @@ class CampDataSet {
 * Fetches all the camps and puts them in an array which can be retrieved using the controller
 **/
     public function fetchAllCamps($page) {
-      $noOfRecords = 5;
+      $noOfRecords = 10;
       $offset = ($page-1) * $noOfRecords;
 
         $sqlQuery = "SELECT *, longitude_camp, latitude_camp

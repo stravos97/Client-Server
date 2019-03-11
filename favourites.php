@@ -1,5 +1,7 @@
 <?php
 session_start();
+unset($_SESSION['id']);
+unset($_SESSION['hashedCampId']);
 $page_title = 'Favourites';
 
 $view = new stdClass();

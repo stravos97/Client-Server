@@ -1,5 +1,7 @@
 <?php
 session_start();
+unset($_SESSION['id']);
+unset($_SESSION['hashedCampId']);
 $page_title = 'Add Camps';
 
 $view = new stdClass();
