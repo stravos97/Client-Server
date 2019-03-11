@@ -29,9 +29,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="<?php echo url_for(u('index.php')); ?>">Home</a>
-        <a class="navbar-brand" href="<?php echo url_for(u('2.php')) . '?' . 'page=1';?>">All Camps</a>
-        <a class="navbar-brand" href="<?php echo url_for(u('test.php')) . '?' . 'page=1';?>">Table-Camps</a>
+        <a class="navbar-brand" href="<?php echo u('index.php'); ?>">Home</a>
+        <a class="navbar-brand" href="<?php echo u('2.php') . '?' . 'page=1';?>">All Camps</a>
+        <a class="navbar-brand" href="<?php echo u('test.php') . '?' . 'page=1';?>">Table-Camps</a>
         <?php
 
             if (isset($_COOKIE['admin'])) {

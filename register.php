@@ -2,6 +2,8 @@
 //NEED TO FIX
 //Could also have phone number validation
 session_start();
+unset($_SESSION['id']);
+unset($_SESSION['hashedCampId']);
 $page_title = 'Register';
 
 $view = new stdClass();

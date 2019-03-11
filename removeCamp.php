@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+unset($_SESSION['id']);
+unset($_SESSION['hashedCampId']);
 
 require_once('Models/CampDataSet.php');
 
