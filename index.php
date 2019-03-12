@@ -18,19 +18,6 @@ $campDataSet = new CampDataSet();
 $view->campDataSet = $campDataSet->search($searchText, '1');
 
 
- /**
- * If the search button is pressed, helps search for an item
- */
-
-if (isset($_POST['searchButton'])) {
-  $searchTerm = $_POST['searchTerm']; //name of search text box
-  // only show records that match the entered search term
-  $view->campDataSet = ($campDataSet->search($searchTerm));
-
-}
-else {
-  echo $searchTerm;
-}
 
 if (isset($_POST['logOutButton'])) {
   session_destroy();
