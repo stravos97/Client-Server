@@ -6,6 +6,7 @@ require_once ('Models/CampDataSet.php');
 
 $campDataSet = (new CampDataSet());
 
+
 /**
 * The job of this class is just to suggest things
 * It doesn't search and present search results, that is done in the controller
@@ -27,6 +28,10 @@ function str_starts_with($choice, $query) {
 }
 
 
+function str_contains($choice, $query) {
+  return strpos($choice, $query) !== false;
+}
+
 
 function search($query, $campsArray) {
   $matches = [];
@@ -36,7 +41,7 @@ function search($query, $campsArray) {
   foreach($campsArray as $choice) {
     // Downcase both strings for case-insensitive search
     $d_choice = strtolower($choice);
-    if(str_starts_with($d_choice, $d_query)) {
+    if(str_contains($d_choice, $d_query)) {
       $matches[] = $choice;
     }
   }

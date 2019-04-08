@@ -1,13 +1,20 @@
 // note: IE8 doesn't support DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
 
+  require_once ('Models/CampDataSet.php');
+  $campGetIdName = (new CampDataSet());
+
   var suggestions = document.getElementById("suggestions");
   var form = document.getElementById("search-form");
   var search = document.getElementById("search");
 
 
 
+
+
 function suggestionsToList(items) {
+  //get the id numbers in a foreach loop print tehm out in the output so the links work
+
 
   var output = '';
 
@@ -35,10 +42,10 @@ function suggestionsToList(items) {
 
 
     //no point in search for items if there are less than three charachters
-    if (searchTerm.length < 3) {
-        suggestions.style.display = 'none';
-        return;
-    }
+    // if (searchTerm.length < 3) {
+    //     suggestions.style.display = 'none';
+    //     return;
+    // }
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'autosuggest.php?searchTerm=' + searchTerm, true);
