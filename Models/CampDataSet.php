@@ -44,6 +44,43 @@ class CampDataSet {
         return $dataSet;
     }
 
+    /**
+    * Just get the Country Name which is used for autosuggest
+    **/
+
+    public function getAllCountryName() {
+
+        $sqlQuery = "SELECT name_camp
+                     FROM Camp_records";
+
+
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+
+        $statement->execute();
+
+        $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
+        // this will also stop country_camp and name_camp
+        var_dump($results);
+        return $results;
+    }
+
+    public function getIdName() {
+
+        $sqlQuery = "SELECT name_camp, id_Camps
+                     FROM Camp_records";
+
+
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+
+        $statement->execute();
+
+        $results = $statement->fetchAll(\PDO::FETCH_ASSOC); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
+        // this will also stop country_camp and name_camp
+        var_dump($results);
+        return $results;
+    }
+
+
 /**
 * Adds a camp to Camp_records Camp_details, There is a fk relationship between the,. so id Number cannot be null
 * Checks bool of $statement.
