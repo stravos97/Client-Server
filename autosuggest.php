@@ -63,7 +63,7 @@ $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : '';
 //Find all the suggestions and return the top 5
 
   sort($suggestions);
-  $max_suggestions = 10;
+  $max_suggestions = 5;
   $top_suggestions = array_slice($suggestions, 0, $max_suggestions);
 //var_dump($campsArray);
   echo json_encode($top_suggestions);

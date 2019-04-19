@@ -1,8 +1,6 @@
 // note: IE8 doesn't support DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
 
-  require_once ('Models/CampDataSet.php');
-  $campGetIdName = (new CampDataSet());
 
   var suggestions = document.getElementById("suggestions");
   var form = document.getElementById("search-form");
@@ -18,9 +16,9 @@ function suggestionsToList(items) {
 
   var output = '';
 
-  for (i = 0; i < items.length; i++) {
+  for(i=0; i < items.length; i++) {
     output += '<li>';
-    output += '<a href="search.php?q=' + items[i] + '>';
+    output += '<a href="search.php?q=' + items[i] + '">';
     output += items[i];
     output += '</a>';
     output += '</li>';
@@ -33,6 +31,7 @@ function suggestionsToList(items) {
 // Turn JSON  into HTMl
   function showSuggestions(json) {
     var li_list = suggestionsToList(json);
+    console.log(li_list); 
     suggestions.innerHTML = li_list;
     suggestions.style.display = 'block';
   }
@@ -42,10 +41,10 @@ function suggestionsToList(items) {
 
 
     //no point in search for items if there are less than three charachters
-    // if (searchTerm.length < 3) {
-    //     suggestions.style.display = 'none';
-    //     return;
-    // }
+    if (searchTerm.length < 3) {
+        suggestions.style.display = 'none';
+        return;
+    }
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'autosuggest.php?searchTerm=' + searchTerm, true);

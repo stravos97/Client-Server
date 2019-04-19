@@ -87,7 +87,6 @@ class CampDataSet {
 
         $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
         // this will also stop country_camp and name_camp
-        var_dump($results);
         return $results;
     }
 
@@ -101,7 +100,7 @@ class CampDataSet {
 
         $statement->execute();
 
-        $results = $statement->fetchAll(\PDO::FETCH_ASSOC); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
         // this will also stop country_camp and name_camp
         var_dump($results);
         return $results;
