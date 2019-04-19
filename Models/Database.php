@@ -37,7 +37,7 @@ class Database {
      */
     private function __construct($username, $password, $host, $database) {
         try {
-            $this->_dbHandle = new PDO("mysql:host=$host;dbname=$database",  $username, $password); // creates the database handle with connection info
+            $this->_dbHandle = new PDO("mysql:host=$host;dbname=$database;charset=utf8",  $username, $password); // creates the database handle with connection info
         }
         catch (PDOException $e) { // catch any failure to connect to the database
 	    echo $e->getMessage();

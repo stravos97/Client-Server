@@ -23,7 +23,7 @@ class AutoSuggest{
       exit;
     }
 
-    $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : ''; // this could be a field 
+    $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : ''; // this could be a field
 
 
 

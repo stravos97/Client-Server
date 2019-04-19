@@ -44,6 +44,33 @@ class CampDataSet {
         return $dataSet;
     }
 
+    public function fetchAll() {
+
+        $sqlQuery = "SELECT *, longitude_camp, latitude_camp
+                     FROM Camp_records
+                     LEFT JOIN Camp_details ON Camp_records.id_Camps = Camp_details.id_Camps"; //second number is how many camps are shown
+
+        //$table = "Camp_records";
+
+        $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+
+        $statement->execute();
+        if ($statement) {
+          echo "It worked";
+        }else {
+          echo "statement -fetchall in Camp Set Failed";
+        }
+
+
+        $dataSet = [];
+      //  echo $sqlQuery;
+        while ($row = $statement->fetch()) { //executes the statement, fetches all the data and puts each sql function in the campdata constructor using row
+           $dataSet[] = new CampData($row);
+        }
+
+        return $dataSet;
+    }
+
     /**
     * Just get the Country Name which is used for autosuggest
     **/
@@ -60,7 +87,6 @@ class CampDataSet {
 
         $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
         // this will also stop country_camp and name_camp
-        var_dump($results);
         return $results;
     }
 
@@ -74,7 +100,7 @@ class CampDataSet {
 
         $statement->execute();
 
-        $results = $statement->fetchAll(\PDO::FETCH_ASSOC); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC); //VERY IMPORTANT IT ECHOS LIKE THIS, look at the var dump
         // this will also stop country_camp and name_camp
         var_dump($results);
         return $results;
