@@ -17,12 +17,13 @@
         // get map marker data from the view object locations field and convert it
         // from a php array to json arrary so it can be read in js below
         var locations = <?php echo json_encode($view->locations); ?>;
+        console.log(locations);
 
         // make a new map object and attached it to the display element
         var map = new google.maps.Map(
             document.getElementById('map'),
             {
-                zoom: 10, center: new google.maps.LatLng(53, 9),
+                zoom: 1, center: new google.maps.LatLng(37.0902, 95.7129),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
         );
