@@ -53,7 +53,7 @@
                });
 
                // set formatted content for this marker
-               var content = "<div><img src='photos/" + photo + "'><p>" + name + "</p><p><a href='/showbeach.php?id=" + id + "'>Click for more info</a></p><div>";
+               var content = "<div><img src='img/" + photo + "' ><p>" + name + "</p><p><a href='/info_content.phtml.php?id=" + id + " &name=" + name +"'>Click for more info</a></p><div>";
                // add a click event to this marker (and each one) and apply the content
                google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
                     return function() {
