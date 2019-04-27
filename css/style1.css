@@ -95,3 +95,12 @@ ul#suggestions li a {
 ul#suggestions li a:hover {
   background: #AAA;
 }
+
+/**
+* Control google maps page image size
+**/
+
+.gm-style .gm-style-iw img{
+  width: 70;
+  height: 70;
+}
