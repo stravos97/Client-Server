@@ -31,7 +31,7 @@ class CampDataSet {
 
         $statement->execute();
         if ($statement) {
-          echo "It worked";
+
         }else {
           echo "statement -fetchall in Camp Set Failed";
         }
@@ -56,7 +56,7 @@ class CampDataSet {
 
         $statement->execute();
         if ($statement) {
-          echo "It worked";
+
         }else {
           echo "statement -fetchall in Camp Set Failed";
         }
@@ -1077,7 +1077,7 @@ public function maxID(){
 
                     $statement->execute();
                     if ($statement) {
-                      echo "It worked";
+
                     }else {
                       echo "statement -fetchall in Camp Set Failed";
                     }

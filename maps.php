@@ -28,7 +28,7 @@ foreach ($camsiteList as $key) {
      // code...
      $locations[] =
        [$name, $lat, $long, $id, $img];
-var_dump($img);
+
 
 }
    $view->locations = $locations;
