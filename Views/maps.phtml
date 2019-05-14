@@ -22,6 +22,7 @@
         // get map marker data from the view object locations field and convert it
         // from a php array to json arrary so it can be read in js below
         var locations = <?php echo json_encode($view->locations); ?>;
+        console.log(locations);
 
         // make a new map object and attached it to the display element
         var map = new google.maps.Map(
@@ -98,6 +99,11 @@ searchBox.addListener('places_changed', function() {
 
         var marker, i;
 
+        var markerCluster = new MarkerClusterer(map, marker,{
+          imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
+          zoomOnClick: true
+        });
+
         // make jsut one info window so that you only see one at a time when a marker is clicked
         var infowindow = new google.maps.InfoWindow();
 
@@ -119,8 +125,11 @@ searchBox.addListener('places_changed', function() {
                     map: map, title: name , position: latlngset
                });
 
+
+               //ADD the marker to the markerCluster
+               markerCluster.addMarker(marker);
                // set formatted content for this marker
-               var content = "<div><img src='img/" + photo + "' ><p>" + name + "</p><p><a href='/info_content.phtml.php?id=" + id + " &name=" + name +"'>Click for more info</a></p><div>";
+               var content = "<div><img src='img/" + photo + "' ><p>" + name + "</p><p><a href='info_content.php?id=" + id + " &name=" + name +"'>Click for more info</a></p><div>";
                // add a click event to this marker (and each one) and apply the content
                google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
                     return function() {
@@ -131,12 +140,12 @@ searchBox.addListener('places_changed', function() {
 
             }
 
+
        }
 
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDekq9hQoyjiwHnD235q7OrnzFhybKYp_M&libraries=places&callback=initialize"
-     async defer></script>
+
 
 
 
