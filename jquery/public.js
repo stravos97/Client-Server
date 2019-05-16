@@ -18,7 +18,7 @@ function suggestionsToList(items) {
 
   for(i=0; i < items.length; i++) {
     output += '<li>';
-    output += '<a href="search.php?q=' + items[i] + '">';
+    output += '<a href="info_content.php?name=' + items[i] + '">';
     output += items[i];
     output += '</a>';
     output += '</li>';
@@ -31,7 +31,7 @@ function suggestionsToList(items) {
 // Turn JSON  into HTMl
   function showSuggestions(json) {
     var li_list = suggestionsToList(json);
-    console.log(li_list); 
+    console.log(li_list);
     suggestions.innerHTML = li_list;
     suggestions.style.display = 'block';
   }

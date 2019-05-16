@@ -52,11 +52,12 @@
 
          $_SESSION['campId'] = $campArray->getID_Camps();
 
+
          $hashed_id = password_hash($_SESSION['campId'], PASSWORD_DEFAULT);
 
            $_SESSION['hashedCampId'] = $hashed_id;
 
-        // var_dump($_SESSION['campId']);
+           var_dump($_SESSION['campId']);
          //var_dump($hashed_id);
   echo ' <div class="row">
         <div class="col-md-7" >

@@ -23,10 +23,10 @@ class AutoSuggest{
       exit;
     }
 
-    $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : ''; // this could be a field
+self::step3();
 
 
-
+return echo json_encode($top_suggestions);
   }
 
   public function is_ajax_request() {
@@ -34,32 +34,48 @@ class AutoSuggest{
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
   }
 
-  public function str_starts_with($choice, $query) {
-    return strpos($choice, $query) === 0;
-  }
 
+public function step3() {
+  $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : '';
 
-  public function str_contains($choice, $query) {
-    return strpos($choice, $query) !== false;
-  }
+  // find and return search suggestions as JSON
 
+    $view->campDataSet = $campDataSet->getAllCountryName();
+  //  var_dump($view->campDataSet);
+    $campsArray = $view->campDataSet;
 
-  public function search($query, $campsArray) {
-    $matches = [];
+    $suggestions = self::search($query, $campsArray);
+  //Find all the suggestions and return the top 5
 
-    $d_query = strtolower($query);
+    self::sort($suggestions);
+    $max_suggestions = 2;
+    $top_suggestions = array_slice($suggestions, 0, $max_suggestions);
+}
 
-    foreach($campsArray as $choice) {
-      // Downcase both strings for case-insensitive search
-      $d_choice = strtolower($choice);
-      if(str_contains($d_choice, $d_query)) {
-        $matches[] = $choice;
-      }
+public function search($query, $campsArray) {
+  $matches = [];
+
+  $d_query = strtolower($query);
+
+  foreach($campsArray as $choice) {
+    // Downcase both strings for case-insensitive search
+    $d_choice = strtolower($choice);
+    if(str_contains($d_choice, $d_query)) {
+      $matches[] = $choice;
     }
-
-    return $matches;
   }
 
+  return $matches;
+}
+
+public function str_starts_with($choice, $query) {
+  return strpos($choice, $query) === 0;
+}
+
+
+public function str_contains($choice, $query) {
+  return strpos($choice, $query) !== false;
+}
 
 }
 

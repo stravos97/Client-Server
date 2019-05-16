@@ -3,6 +3,7 @@ session_start();
 $view = new stdClass();
 $view->pageTitle = 'Homepage';
 require_once('Models/CampDataSet.php');
+$page_title = 'Maps';
 //require_once('Models/CampsiteDataSet.php');
 $campsiteSites = new  CampDataSet();
 $camsiteList = $campsiteSites->fetchAll(); //is too much data, need to limit it
@@ -30,6 +31,8 @@ foreach ($camsiteList as $key) {
        [$name, $lat, $long, $id, $img];
 
 }
+
+json_encode($locations);
    $view->locations = $locations;
 
 
