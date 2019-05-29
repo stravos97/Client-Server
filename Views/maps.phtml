@@ -220,6 +220,7 @@ map.fitBounds(bounds);
            var long = locations[i][2];
            var photo = locations[i][4];
            var id = locations[i][3];
+           var hashedID = locations[i][5];
            // create a latlng object for the marker
            latlngset = new google.maps.LatLng(lat, long);
            // add the marker
@@ -231,7 +232,7 @@ map.fitBounds(bounds);
            //ADD the marker to the markerCluster
            markerCluster.addMarker(marker);
            // set formatted content for this marker
-           var content = "<div><img src='img/" + photo + "' ><p>" + name + "</p><p><a href='info_content.php?id=" + id + " &name=" + name +"'>Click for more info</a></p><div>";
+           var content = "<div><img src='img/" + photo + "' ><p>" + name + "</p><p><a href='info_content.php?id=" + id + "&name=" + name + "&hashedID=" + hashedID +"'>Click for more info</a></p><div>";
            // add a click event to this marker (and each one) and apply the content
            google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
                 return function() {

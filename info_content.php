@@ -14,12 +14,13 @@ require_once ('Models/RatingDataSet.php');
 /*
  If the id hashes match then tih is true
 */
-if(password_verify($_SESSION['campId'], $_SESSION['hashedCampId'])) {
+if(password_verify($_GET['id'], $_SESSION['hashedCampId'][$_GET['id']]) || password_verify($_GET['id'], $_GET['hashedID'])) {
     // If the password inputs matched the hashed password in the database
-    $id = $_SESSION['campId'];
+    $id = $_GET['id'];
+    var_dump($id);
 
 } else {
-  header("Location: 404.php");
+
 }
 
 /*

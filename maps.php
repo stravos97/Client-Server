@@ -24,11 +24,11 @@ foreach ($camsiteList as $key) {
    $id =  $key-> getID_Camps();
 
 
-
+ $hashed_id = password_hash($id, PASSWORD_DEFAULT);
    //echo $key->getID_Camps();
      // code...
      $locations[] =
-       [$name, $lat, $long, $id, $img];
+       [$name, $lat, $long, $id, $img, $hashed_id];
 
 }
 

@@ -1,4 +1,5 @@
 <?php require('template/header.phtml') ?> <!-- Its a 2 dimenional array-->
+<?php $items = array(); ?>
 <!-- Page Content -->
     <div class="container">
 
@@ -55,13 +56,16 @@
 
          $hashed_id = password_hash($_SESSION['campId'], PASSWORD_DEFAULT);
 
-           $_SESSION['hashedCampId'] = $hashed_id;
+         $items[$campArray->getID_Camps()] = $hashed_id;
 
+
+           $_SESSION['hashedCampId'] = $items;
+           var_dump( $_SESSION['hashedCampId']);
            var_dump($_SESSION['campId']);
-         //var_dump($hashed_id);
+
   echo ' <div class="row">
         <div class="col-md-7" >
-          <a href="'?><?php echo 'info_content.php?id=' . h(u($hashed_id)) . '&' . 'name=' . $campArray->getName_Camp() . '">';?><?php echo '
+          <a href="'?><?php echo 'info_content.php?id=' . h(u($campArray->getID_Camps())) . '&' . 'name=' . $campArray->getName_Camp() . '">';?><?php echo '
             <img class="img-fluid rounded mb-3 mb-md-0" width="70%" height="50%" src="img/'?><?php echo $campArray->getCamp_images();?><?php echo '" alt="">
           </a>
         </div>
@@ -78,7 +82,7 @@
           <br>
 
           <div class="mt-1">
-            <a class="btn btn-primary" href="'?><?php echo 'info_content.php?id=' . h(u($hashed_id)) . '&' . 'name=' . h(u($campArray->getName_Camp())) . '">View Camp</a>';?><?php echo '
+            <a class="btn btn-primary" href="'?><?php echo 'info_content.php?id=' . h(u($campArray->getID_Camps())) . '&' . 'name=' . h(u($campArray->getName_Camp())) . '">View Camp</a>';?><?php echo '
             '?><?php
             if (isset($_COOKIE['admin'])) {
               echo '<a class="btn btn-primary" href="'?><?php echo 'remove.php?id=' . h(u($campArray->getID_Camps())) . '&' . 'name=' . h(u($campArray->getName_Camp())) . '">Remove Camp</a>';}?><?php echo ''
@@ -112,7 +116,7 @@
 
    echo ' <div class="row">
          <div class="col-md-7" >
-           <a href="'?><?php echo 'info_content.php?id=' . $hashed_id . '">';?><?php echo '
+           <a href="'?><?php echo 'info_content.php?id=' . $campArray->getID_Camps() . '">';?><?php echo '
              <img class="img-fluid rounded mb-3 mb-md-0" width="70%" height="50%" src="img/'?><?php echo $campArray['camp_images'];?><?php echo '" alt="">
            </a>
          </div>
@@ -128,7 +132,7 @@
            <br>
 
            <div class="mt-1">
-             <a class="btn btn-primary" href="'?><?php echo 'info_content.php?id=' . $hashed_id . '&' . 'name=' . $campArray['name_camp'] . '">View Camp</a>';?><?php echo '
+             <a class="btn btn-primary" href="'?><?php echo 'info_content.php?id=' . $campArray->getID_Camps() . '&' . 'name=' . $campArray['name_camp'] . '">View Camp</a>';?><?php echo '
              '?><?php
              if (isset($_COOKIE['admin'])) {
                echo '<a class="btn btn-primary" href="'?><?php echo 'remove.php?id=' . $campArray['id_Camps'] . '&' . 'name=' . $campArray['name_camp'] . '">Remove Camp</a>';}?><?php echo ''
@@ -149,7 +153,12 @@
       <!-- /.row -->
 
 
+<?php
 
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+         ?>
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
