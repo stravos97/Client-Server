@@ -32,7 +32,7 @@ function str_contains($choice, $query) {
   return strpos($choice, $query) !== false;
 }
 
-
+// lowers all charachters and checks if any charachters of query are contained in choice
 function search($query, $campsArray) {
   $matches = [];
 
@@ -50,18 +50,20 @@ function search($query, $campsArray) {
 }
 
 
-
+//Ternary operator to see if the request was sent
 $query = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : '';
 
 // find and return search suggestions as JSON
-
   $view->campDataSet = $campDataSet->getAllCountryName();
+
 //  var_dump($view->campDataSet);
   $campsArray = $view->campDataSet;
 
   $suggestions = search($query, $campsArray);
 //Find all the suggestions and return the top 5
 
+// sorts the suggestions and ensures thare are a max of twow .
+// this daat is passed back to the js page
   sort($suggestions);
   $max_suggestions = 2;
   $top_suggestions = array_slice($suggestions, 0, $max_suggestions);

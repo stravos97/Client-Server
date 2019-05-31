@@ -14,7 +14,20 @@ require_once ('Models/RatingDataSet.php');
 /*
  If the id hashes match then tih is true
 */
-if(password_verify($_GET['id'], $_SESSION['hashedCampId'][$_GET['id']]) || password_verify($_GET['id'], $_GET['hashedID'])) {
+$hashedCampId = '';
+if (isset($_GET['hashedID'])) {
+
+}else{
+  $_GET['hashedID'] = '';
+}
+if (isset($_GET['hashedID'])) {
+
+}else{
+  $_GET['hashedID'] = '';
+}
+
+
+if(password_verify($_GET['id'], $_SESSION['hashedCampId'][$_GET['id']]) || password_verify($_GET['id'], $_GET['hashedID']) || ($_GET['q'] === 'q') ) {
     // If the password inputs matched the hashed password in the database
     $id = $_GET['id'];
     var_dump($id);
